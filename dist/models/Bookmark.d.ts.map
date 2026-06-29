@@ -1,0 +1,1 @@
+{"version":3,"file":"Bookmark.d.ts","sourceRoot":"","sources":["../../src/models/Bookmark.ts"],"names":[],"mappings":"AAAA,OAAO,QAAQ,EAAE,EAAE,QAAQ,EAAU,MAAM,UAAU,CAAC;AAEtD,MAAM,WAAW,SAAU,SAAQ,QAAQ;IACzC,MAAM,EAAE,QAAQ,CAAC,KAAK,CAAC,QAAQ,CAAC;IAChC,OAAO,EAAE,QAAQ,CAAC,KAAK,CAAC,QAAQ,CAAC;IACjC,SAAS,EAAE,IAAI,CAAC;CACjB;;;;;;AAYD,wBAAqE"}
