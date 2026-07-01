@@ -22,7 +22,11 @@ const app = express();
 app.use(helmet());
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+    origin: [
+      'http://localhost:3000',
+      'https://swapanfrontend.vercel.app',
+      ...(process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : [])
+    ],
     credentials: true,
   })
 );
