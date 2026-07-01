@@ -19,7 +19,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID || '',
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
-      callbackURL: process.env.GOOGLE_CALLBACK_URL || '/api/auth/google/callback',
+      callbackURL: 'https://swapanbackend.onrender.com/api/auth/google/callback',
       proxy: true,
     },
     async (_accessToken, _refreshToken, profile, done) => {
@@ -290,11 +290,11 @@ router.get('/google', passport.authenticate('google', { scope: ['profile', 'emai
 // GET /api/auth/google/callback
 router.get(
   '/google/callback',
-  passport.authenticate('google', { session: false, failureRedirect: `${process.env.FRONTEND_URL}/login?error=oauth` }),
+  passport.authenticate('google', { session: false, failureRedirect: `https://swapanfrontend.vercel.app/login?error=oauth` }),
   async (req: Request, res: Response): Promise<void> => {
     const pUser = req.user as { _id: string } | undefined;
     if (!pUser) {
-      res.redirect(`${process.env.FRONTEND_URL}/login?error=oauth`);
+      res.redirect(`https://swapanfrontend.vercel.app/login?error=oauth`);
       return;
     }
     const token = generateToken(pUser._id.toString());
@@ -305,8 +305,7 @@ router.get(
       user.isVerified = true;
       await user.save();
     }
-
-    res.redirect(`${process.env.FRONTEND_URL}/auth/callback?token=${token}`);
+    res.redirect(`https://swapanfrontend.vercel.app/auth/callback?token=${token}`);
   }
 );
 
