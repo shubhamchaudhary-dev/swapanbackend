@@ -24,6 +24,7 @@ app.use(
   cors({
     origin: [
       'http://localhost:3000',
+      'https://swapanpublication.vercel.app',
       'https://swapanfrontend.vercel.app',
       ...(process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : [])
     ],

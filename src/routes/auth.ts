@@ -290,11 +290,11 @@ router.get('/google', passport.authenticate('google', { scope: ['profile', 'emai
 // GET /api/auth/google/callback
 router.get(
   '/google/callback',
-  passport.authenticate('google', { session: false, failureRedirect: `https://swapanfrontend.vercel.app/login?error=oauth` }),
+  passport.authenticate('google', { session: false, failureRedirect: `https://swapanpublication.vercel.app/login?error=oauth` }),
   async (req: Request, res: Response): Promise<void> => {
     const pUser = req.user as { _id: string } | undefined;
     if (!pUser) {
-      res.redirect(`https://swapanfrontend.vercel.app/login?error=oauth`);
+      res.redirect(`https://swapanpublication.vercel.app/login?error=oauth`);
       return;
     }
     const token = generateToken(pUser._id.toString());
@@ -305,7 +305,7 @@ router.get(
       user.isVerified = true;
       await user.save();
     }
-    res.redirect(`https://swapanfrontend.vercel.app/auth/callback?token=${token}`);
+    res.redirect(`https://swapanpublication.vercel.app/auth/callback?token=${token}`);
   }
 );
 
